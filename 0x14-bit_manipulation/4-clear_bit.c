@@ -3,16 +3,17 @@
 /**
 * clear_bit - sets the value of a given bit to 0
 * @num_ptr: Pointer to the number to modify.
-* @bit_index: Index of the bit to clear.
+* @index: the bit to clear.
 *
 * Return: 1 for success, -1 for failure (if bit_index
 * is out of bounds).
 */
 int clear_bit(unsigned long int *num_ptr, unsigned int index)
 {
-if (index > 63)
+if (index >= sizeof(num_ptr) * 8)
 return (-1);
 
-*num_ptr = (~(1UL << index) & *num_ptr);
+if (*num_ptr & 1L << index)
+	*num_ptr ^= 1L << index;
 return (1);
 }
