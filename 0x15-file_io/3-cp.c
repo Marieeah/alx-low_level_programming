@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 char *create_buffer(char *file);
-void closeFileDescription(int fd);
+void close_file(int fd);
 /**
 * create_buffer - Allocates a buffer of size 1024 bytes.
 * @file: The name of the file for which the bufer is allocated.
@@ -28,7 +28,7 @@ return (buffer);
 
 
 /**
-* closeFileDescriptor - Closes a file descriptor.
+* close_file - Closes a file descriptor.
 * @fd: The file descriptor to be closed.
 */
 void close_file(int fd)
